@@ -1,0 +1,7 @@
+name: onboardingProj
+runtime: nodejs
+description: EKS build
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-typescript
