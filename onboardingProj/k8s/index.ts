@@ -17,10 +17,6 @@ const ns = new k8s.core.v1.Namespace(name, {}, { provider: kProvider});
 
 //const appLabels = {app: "nginx"};
 
-/*
-    -Deployment is a template for creating pods
-
-*/
 const appLabels = { appClass: name };
 const deployment = new k8s.apps.v1.Deployment(name, {
     metadata:{
@@ -52,8 +48,6 @@ const deployment = new k8s.apps.v1.Deployment(name, {
     provider: kProvider,
 });
 
-export const deploymentName = deployment.metadata.name;
-
 const service = new k8s.core.v1.Service(name,{
     metadata:{
         labels: appLabels,
@@ -66,5 +60,6 @@ const service = new k8s.core.v1.Service(name,{
     }
 }, {provider: kProvider});
 
+export const deploymentName = deployment.metadata.name;
 export const serviceName = service.metadata.name;
 export const serviceHostName = service.status.loadBalancer.ingress[0].hostname;
