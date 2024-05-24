@@ -1,0 +1,4 @@
+/bin/
+/node_modules/
+/Pulumi.k8s-deploy.yaml
+/kubeconfig
